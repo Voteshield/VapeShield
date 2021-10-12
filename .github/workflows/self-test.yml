@@ -3,9 +3,6 @@ name: self-test
 on:
   workflow_dispatch:
 
-env:
-  VS_API_KEY: ${{ secrets.VS_API_KEY }}
-
 jobs:
   self-test-job:
     runs-on: ubuntu-20.04
@@ -16,6 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run the workflow using the local code
+        env:
+          VS_API_KEY: ${{ secrets.VS_API_KEY }}
         uses: ./ # Uses an action in the root directory
         id: vape-naysh
         with:
