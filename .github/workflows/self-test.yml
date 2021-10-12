@@ -8,19 +8,14 @@ jobs:
     runs-on: ubuntu-20.04
     name: A job to run the workflow
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run the workflow using the local code
-        uses: ./ # Uses an action in the root directory
+        uses: ./
         id: vape-naysh
-        env:
-          VS_API_KEY: ${{ secrets.VS_API_KEY }}
+        # env:
+        #   VS_API_KEY: ${{ secrets.VS_API_KEY }}
         with:
-          base-url: "https://api-vs.***REMOVED***.us"
-          environment: "***REMOVED***"
+          BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
+          ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
           VS_API_KEY: ${{ secrets.VS_API_KEY }}
-      # Use the output from the `hello` step
-      #- name: Get the output time
-      #  run: echo "The time was ${{ steps.hello.outputs.time }}"

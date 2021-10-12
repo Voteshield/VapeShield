@@ -1,6 +1,4 @@
 # Container image that runs your code
-# FROM alpine:latest
-
 FROM public.ecr.aws/bitnami/python:3.9-prod
 
 # build dependencies
