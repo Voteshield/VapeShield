@@ -16,6 +16,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.base-url }}
-    - ${{ inputs.environment }}
+  #args:
+  #  - ${{ inputs.base-url }}
+  #  - ${{ inputs.environment }}
