@@ -7,8 +7,8 @@ import schemathesis
 import os
 
 DEFAULT_TIMEOUT = 10
-environment = os.environ.get('ENVIRONMENT', 'goatfield')
-base_url = os.environ.get('BASE_URL', 'https://api-vs.goatfield.us')
+environment = os.environ.get('ENVIRONMENT_ARG')
+base_url = os.environ.get('BASE_URL_ARG')
 
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:

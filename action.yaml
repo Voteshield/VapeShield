@@ -2,23 +2,15 @@
 name: 'VapeShield'
 description: 'Tests a deployed VoteShield environment using its OAS3 specfile.'
 inputs:
-  base-url:  # id of input
+  BASE_URL_ARG:
     description: 'The backend URL base to prefix all API routes.'
-    required: false
-    default: 'https://api-vs.goatfield.us'
-  environment:
-    description: 'The environment to authenticate against. This should either be goatfield or voteshield.'
-    required: false
-    default: 'goatfield'
+    required: true
+  ENVIRONMENT_ARG:
+    description: 'The environment to authenticate against.'
+    required: true
   VS_API_KEY:
     description: 'The json file with API key information supplied..'
     required: true
-#outputs:
-#  time: # id of output
-#    description: 'no idea how this gets set'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  #args:
-  #  - ${{ inputs.base-url }}
-  #  - ${{ inputs.environment }}
