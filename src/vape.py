@@ -10,6 +10,7 @@ DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT', 'goatfield')
 base_url = os.environ.get('BASE_URL', 'https://api-vs.goatfield.us')
 
+print("Env and URL:")
 print(environment)
 print(base_url)
 
