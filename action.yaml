@@ -1,0 +1,21 @@
+# action.yml
+name: 'VapeShield'
+description: 'Tests a deployed VoteShield environment using its OAS3 specfile.'
+inputs:
+  base-url:  # id of input
+    description: 'The backend URL base to prefix all API routes.'
+    required: false
+    default: 'https://api-vs.***REMOVED***.us'
+  environment:
+    description: 'The environment to authenticate against. This should either be ***REMOVED*** or voteshield.'
+    required: false
+    default: '***REMOVED***'
+#outputs:
+#  time: # id of output
+#    description: 'no idea how this gets set'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.base-url }}
+    - ${{ inputs.environment }}
