@@ -54,9 +54,9 @@ RUN poetry install --no-dev
 # Everything before this came from the Inspector 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY src /
+COPY src/* /src
 
-WORKDIR "/src"
+WORKDIR /src
 
 ENTRYPOINT [ "/opt/pysetup/.venv/bin/python" ]
 CMD ["/opt/pysetup/.venv/bin/pytest", "-v", "vape.py"]
