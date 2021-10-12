@@ -13,9 +13,11 @@ jobs:
       - name: Run the workflow using the local code
         uses: ./
         id: vape-naysh
-        # env:
-        #   VS_API_KEY: ${{ secrets.VS_API_KEY }}
-        with:
+        env:
+          VS_API_KEY: ${{ secrets.VS_API_KEY }}
           BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
           ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
-          VS_API_KEY: ${{ secrets.VS_API_KEY }}
+        # with:
+        #   BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
+        #   ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
+        #   VS_API_KEY: ${{ secrets.VS_API_KEY }}
