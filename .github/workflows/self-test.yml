@@ -1,8 +1,9 @@
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   hello_world_job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     name: A job to run the workflow
     steps:
       # To use this repository's private action,
