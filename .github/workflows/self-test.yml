@@ -13,13 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run the workflow using the local code
-        env:
-          VS_API_KEY: ${{ secrets.VS_API_KEY }}
         uses: ./ # Uses an action in the root directory
         id: vape-naysh
         with:
           base-url: "https://api-vs.***REMOVED***.us"
           environment: "***REMOVED***"
+          VS_API_KEY: ${{ secrets.VS_API_KEY }}
       # Use the output from the `hello` step
       #- name: Get the output time
       #  run: echo "The time was ${{ steps.hello.outputs.time }}"

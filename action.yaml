@@ -10,6 +10,9 @@ inputs:
     description: 'The environment to authenticate against. This should either be ***REMOVED*** or voteshield.'
     required: false
     default: '***REMOVED***'
+  VS_API_KEY:
+    description: 'The json file with API key information supplied..'
+    required: true
 #outputs:
 #  time: # id of output
 #    description: 'no idea how this gets set'
