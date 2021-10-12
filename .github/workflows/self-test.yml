@@ -15,6 +15,8 @@ jobs:
       - name: Run the workflow using the local code
         uses: ./ # Uses an action in the root directory
         id: vape-naysh
+        env:
+          VS_API_KEY: ${{ secrets.VS_API_KEY }}
         with:
           base-url: "https://api-vs.***REMOVED***.us"
           environment: "***REMOVED***"
