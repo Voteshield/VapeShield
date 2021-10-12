@@ -59,4 +59,4 @@ COPY src/* /src/
 WORKDIR /src
 
 ENTRYPOINT [ "/opt/pysetup/.venv/bin/python" ]
-CMD ["/opt/pysetup/.venv/bin/pytest", "-s", "/src/vape.py"]
+CMD ["/opt/pysetup/.venv/bin/pytest", "-v", "/src/vape.py"]
