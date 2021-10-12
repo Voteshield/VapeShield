@@ -10,19 +10,13 @@ DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT', '***REMOVED***')
 base_url = os.environ.get('BASE_URL', 'https://api-vs.***REMOVED***.us')
 
-print("Env and URL:")
-print(environment)
-print(base_url)
-
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:
         keysdict = json.load(json_file)
 else:
-    keysdict = os.environ.get('VS_API_KEY')
+    keysdict = json.loads(os.environ.get('VS_API_KEY'))
     if not keysdict:
         raise SystemExit('No API keyfile found.')
-
-print(keysdict)
 
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
