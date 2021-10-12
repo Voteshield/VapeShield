@@ -15,6 +15,8 @@ if os.path.exists('apikeys.json'):
         keysdict = json.load(json_file)
 else:
     keysdict = os.environ.get('VS_API_KEY')
+    if not keysdict:
+        raise SystemExit('No API keyfile found.')
 
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
