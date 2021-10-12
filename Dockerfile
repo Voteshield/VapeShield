@@ -54,7 +54,7 @@ RUN poetry install --no-dev
 # Everything before this came from the Inspector 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY src/* /src
+COPY src/* /src/
 
 WORKDIR /src
 

@@ -1,8 +1,11 @@
 on:
   workflow_dispatch:
 
+env:
+  VS_API_KEY: ${{ secrets.VS_API_KEY }}
+
 jobs:
-  hello_world_job:
+  self-test-job:
     runs-on: ubuntu-20.04
     name: A job to run the workflow
     steps:
