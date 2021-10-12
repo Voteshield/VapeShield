@@ -22,6 +22,8 @@ else:
     if not keysdict:
         raise SystemExit('No API keyfile found.')
 
+print(keysdict)
+
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
 jsonurl = urllib.request.urlopen("{}/v1/spec.json".format(base_url))
