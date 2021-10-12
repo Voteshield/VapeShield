@@ -10,6 +10,9 @@ DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT', 'goatfield')
 base_url = os.environ.get('BASE_URL', 'https://api-vs.goatfield.us')
 
+print(environment)
+print(base_url)
+
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:
         keysdict = json.load(json_file)
