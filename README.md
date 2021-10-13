@@ -1,4 +1,4 @@
-# VapeShield 💨 🛡️
+# VapeShield 🌬️ 🛡️
 
 VapeShield is a very simple tool to perform smoke testing for deployed VoteShield API backends. 
 
