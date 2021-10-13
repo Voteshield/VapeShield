@@ -1,6 +1,9 @@
 # action.yml
 name: 'VapeShield'
 description: 'Tests a deployed VoteShield environment using its OAS3 specfile.'
+branding:
+  icon: 'shield'
+  color: 'gray-dark'
 inputs:
   BASE_URL_ARG:
     description: 'The backend URL base to prefix all API routes.'
