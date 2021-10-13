@@ -4,11 +4,24 @@ VapeShield is a very simple tool to perform smoke testing for deployed VoteShiel
 
 ## What exactly does this do?
 
-This is a very simple Github Action that runs whenever there is a change in the API, or in the VoteShield infrastructure. It utilizes the excellent [schemathesis](https://github.com/schemathesis/schemathesis) to grab the OAS3 specfile and tests API responses accordingly.
+This is a very simple Github Action that runs whenever there is a change in the API, or in the VoteShield infrastructure. It utilizes the excellent [schemathesis](https://github.com/schemathesis/schemathesis) to grab the OAS3 specfile and tests API responses accordingly. This workflow is essentially a wrapper for Schemathesis, and you specify what to point it to.
 
 ## Usage
 
-For a simple example, take a peek at the [self-test](https://github.com/Voteshield/VapeShield/blob/main/.github/workflows/self-test.yaml) workflow in this repository.
+For a simple example, take a peek at the [self-test](https://github.com/Voteshield/VapeShield/blob/main/.github/workflows/self-test.yaml) workflow in this repository. For example:
+
+```yaml
+jobs:
+  test-deployment:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Test a VS deployment
+        uses: Voteshield/VapeShield@main
+        env:
+          VS_API_KEY: ${{ secrets.VS_API_KEY }}
+          BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
+          ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
+```
 
 This action takes three arguments as environmental variables:
 
