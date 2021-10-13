@@ -21,6 +21,7 @@ jobs:
           VS_API_KEY: ${{ secrets.VS_API_KEY }}
           BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
           ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
+          RETRY_ATTEMPTS: 60
 ```
 
 This action takes three arguments as environmental variables:
@@ -28,6 +29,7 @@ This action takes three arguments as environmental variables:
 - *VS_API_KEY:* Your VoteShield API information. This includes all the details needed to authenticate with your API key.
 - *BASE_URL_ARG:* The base URL for the deployed VoteShield environment. For example, api.voteshield.us
 - *ENVIRONMENT_ARG:* The environment you are authenticating against. For example, `voteshield`.
+- *RETRY_ATTEMPTS:* Optional. The action will try this number of times every second by default to see if the service is available, considering most instances of this being ran will assume a service was cycled somewhere.
 
 ## Testing
 

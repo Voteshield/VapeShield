@@ -2,6 +2,7 @@ from hypothesis import settings, Phase
 import json
 import requests
 from requests.auth import HTTPBasicAuth
+from time import sleep
 import urllib.request
 import schemathesis
 import os
@@ -9,14 +10,26 @@ import os
 DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT_ARG')
 base_url = os.environ.get('BASE_URL_ARG')
+retry_attempts = os.environ.get('RETRY_ATTEMPTS', 60)
 
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:
         keysdict = json.load(json_file)
 else:
     keysdict = json.loads(os.environ.get('VS_API_KEY'))
-    if not keysdict:
-        raise SystemExit('No API keyfile found.')
+
+# Most of the time, if this is being ran it is after a new environment is created, 
+# and there may be a window when services are being cycled. So we wait for 200s.
+for i in range(retry_attempts):
+    health_url = "{}/_health/".format(base_url)
+    try:
+        r = requests.get(health_url)
+        if r.status_code == 200:
+            break
+    except Exception as err:
+        print("Attempt {0}/{1} error: {2}".format(i + 1, retry_attempts, err))
+    if i is not retry_attempts - 1:
+        sleep(1)
 
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
