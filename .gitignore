@@ -1,6 +1,7 @@
 # infra-repo-specific stuff:
 apikeys.json
 output.txt
+.secrets
 
 # All of this came from:
 # https://github.com/github/gitignore/blob/master/Terraform.gitignore
