@@ -11,6 +11,7 @@ DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT_ARG')
 base_url = os.environ.get('BASE_URL_ARG')
 retry_attempts = os.environ.get('RETRY_ATTEMPTS', 60)
+retry_timeout = os.environ.get('RETRY_TIMEOUT', 2)
 
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:
@@ -29,7 +30,7 @@ for i in range(retry_attempts):
     except Exception as err:
         print("Attempt {0}/{1} error: {2}".format(i + 1, retry_attempts, err))
     if i is not retry_attempts - 1:
-        sleep(1)
+        sleep(retry_timeout)
 
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
@@ -59,6 +60,7 @@ def bearer_access_token():
     response = r.json()
     return response['access_token']
 
+print(bearer_access_token())
 
 # For now, population and tag routes are excluded.
 #@schema.parametrize(endpoint="^/(?!populations|tags)",)

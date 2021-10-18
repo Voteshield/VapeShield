@@ -22,6 +22,7 @@ jobs:
           BASE_URL_ARG: ${{ secrets.BASE_URL_ARG }}
           ENVIRONMENT_ARG: ${{ secrets.ENVIRONMENT_ARG }}
           RETRY_ATTEMPTS: 60
+          RETRY_TIMEOUT: 5
 ```
 
 This action takes three arguments as environmental variables:
@@ -30,6 +31,7 @@ This action takes three arguments as environmental variables:
 - *BASE_URL_ARG:* The base URL for the deployed VoteShield environment. For example, api.voteshield.us
 - *ENVIRONMENT_ARG:* The environment you are authenticating against. For example, `voteshield`.
 - *RETRY_ATTEMPTS:* Optional. The action will try this number of times every second by default to see if the service is available, considering most instances of this being ran will assume a service was cycled somewhere.
+- *RETRY_TIMEOUT:* Optional. Set's the timeout in seconds between retries. Defaults to 2 seconds.
 
 ## Testing
 
