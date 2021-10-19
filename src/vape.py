@@ -21,7 +21,7 @@ else:
 
 # Most of the time, if this is being ran it is after a new environment is created, 
 # and there may be a window when services are being cycled. So we wait for 200s.
-for i in range(retry_attempts):
+for i in range(int(retry_attempts)):
     health_url = "{}/_health/".format(base_url)
     try:
         r = requests.get(health_url)
@@ -30,7 +30,7 @@ for i in range(retry_attempts):
     except Exception as err:
         print("Attempt {0}/{1} error: {2}".format(i + 1, retry_attempts, err))
     if i is not retry_attempts - 1:
-        sleep(retry_timeout)
+        sleep(int(retry_timeout))
 
 # This is required because of this:
 # https://github.com/flasgger/flasgger/issues/267
