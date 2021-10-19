@@ -10,8 +10,8 @@ import os
 DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT_ARG')
 base_url = os.environ.get('BASE_URL_ARG')
-retry_attempts = os.environ.get('RETRY_ATTEMPTS', 60)
-retry_timeout = os.environ.get('RETRY_TIMEOUT', 2)
+retry_attempts = int(os.environ.get('RETRY_ATTEMPTS', 60))
+retry_timeout = int(os.environ.get('RETRY_TIMEOUT', 2))
 
 if os.path.exists('apikeys.json'):
     with open('apikeys.json') as json_file:
