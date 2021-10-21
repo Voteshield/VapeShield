@@ -72,7 +72,7 @@ def test_api(case):
         ("GET", "/changes"): 60,
         ("GET", "/change_history"): 60,
         ("GET", "/compare"): 60,
-        ("GET", "/download_population"): 60,
+        ("GET", "/download_population"): 120,
         ("GET", "/notable_populations"): 60,
         ("GET", "/system/snapshots"): 60
     }.get((case.operation.method.upper(), case.operation.path), DEFAULT_TIMEOUT)
