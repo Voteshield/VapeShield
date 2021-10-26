@@ -69,7 +69,7 @@ print(bearer_access_token())
 def test_api(case):
     # Slow routes are defined here. Don't really know of a way to not hard code these.
     timeout = {
-        ("GET", "/changes"): 60,
+        ("GET", "/changes"): 120,
         ("GET", "/change_history"): 60,
         ("GET", "/compare"): 60,
         ("GET", "/download_population"): 120,
