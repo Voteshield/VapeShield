@@ -2,6 +2,8 @@
 
 VapeShield is a very simple tool to perform smoke testing for deployed VoteShield API backends. 
 
+![](https://raw.githubusercontent.com/Voteshield/VapeShield/main/docs/vape_shield.png)
+
 ## What exactly does this do?
 
 This is a very simple Github Action that runs whenever there is a change in the API, or in the VoteShield infrastructure. It utilizes the excellent [schemathesis](https://github.com/schemathesis/schemathesis) to grab the OAS3 specfile and tests API responses accordingly. This workflow is essentially a wrapper for Schemathesis, and you specify what to point it to.
