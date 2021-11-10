@@ -2,7 +2,7 @@
 
 VapeShield is a very simple tool to perform smoke testing for deployed VoteShield API backends. 
 
-![](https://raw.githubusercontent.com/Voteshield/VapeShield/main/docs/vape_shield.png)
+![](https://raw.githubusercontent.com/Voteshield/VapeShield/feature/vapeshield_art/docs/vape_shield.png)
 
 ## What exactly does this do?
 
