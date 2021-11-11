@@ -7,7 +7,7 @@ import urllib.request
 import schemathesis
 import os
 
-DEFAULT_TIMEOUT = 1
+DEFAULT_TIMEOUT = 10
 environment = os.environ.get('ENVIRONMENT_ARG')
 base_url = os.environ.get('BASE_URL_ARG')
 retry_attempts = int(os.environ.get('RETRY_ATTEMPTS', 60))
