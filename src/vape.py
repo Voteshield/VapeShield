@@ -7,9 +7,9 @@ import urllib.request
 import schemathesis
 import os
 
-DEFAULT_TIMEOUT = 10
-environment = os.environ.get('ENVIRONMENT_ARG')
-base_url = os.environ.get('BASE_URL_ARG')
+DEFAULT_TIMEOUT = 1
+environment = 'goatfield' #os.environ.get('ENVIRONMENT_ARG')
+base_url = 'https://api-vs.goatfield.us' #os.environ.get('BASE_URL_ARG')
 retry_attempts = int(os.environ.get('RETRY_ATTEMPTS', 60))
 retry_timeout = int(os.environ.get('RETRY_TIMEOUT', 2))
 
@@ -63,8 +63,7 @@ def bearer_access_token():
 print(bearer_access_token())
 
 # For now, population and tag routes are excluded.
-#@schema.parametrize(endpoint="^/(?!populations|tags)",)
-@schema.parametrize(method="GET")
+@schema.parametrize(method="GET",endpoint="^/(?!download_population)")
 @settings(phases=[Phase.explicit], deadline=None)
 def test_api(case):
     # Slow routes are defined here. Don't really know of a way to not hard code these.
