@@ -10,7 +10,7 @@ This is a very simple Github Action that runs whenever there is a change in the 
 
 ## Usage 
 
-### Github Action
+### Github Actions
 
 For a simple example, take a peek at the [self-test](https://github.com/Voteshield/VapeShield/blob/main/.github/workflows/self-test.yaml) workflow in this repository. For example:
 
@@ -60,7 +60,7 @@ cd src
 BASE_URL='https://YOUR-DEPLOYED-VOTESHIELD-BACKEND' ENVIRONMENT_ARG=YOUR-ENVIRONMENT-FRIENDLY-NAME  pytest -v vape.py
 
 ========================================================================== test session starts ==========================================================================
-platform linux -- Python 3.9.5, pytest-6.2.5, py-1.10.0, pluggy-0.13.1 -- /VapeShield/.venv/bin/python
+platform linux -- Python 3.9.5, pytest-6.2.5, py-1.10.0, pluggy-0.13.1 -- VapeShield/.venv/bin/python
 cachedir: .pytest_cache
 hypothesis profile 'default' -> database=DirectoryBasedExampleDatabase('VapeShield/src/.hypothesis/examples')
 rootdir: VapeShield/src
