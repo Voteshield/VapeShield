@@ -58,6 +58,10 @@ def bearer_access_token():
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
     response = r.json()
+    try:
+        response['access_token']
+    except KeyError:
+        print("There was a problem authenticating to VoteShield, please check your API Key and Parameters.")
     return response['access_token']
 
 print(bearer_access_token())
