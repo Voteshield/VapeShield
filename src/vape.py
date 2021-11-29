@@ -6,6 +6,7 @@ from time import sleep
 import urllib.request
 import schemathesis
 import os
+import logging
 
 DEFAULT_TIMEOUT = 1
 environment = 'goatfield' #os.environ.get('ENVIRONMENT_ARG')
@@ -61,10 +62,10 @@ def bearer_access_token():
     try:
         response['access_token']
     except KeyError:
-        print("There was a problem authenticating to VoteShield, please check your API Key and Parameters.")
+        logging.error("There was a problem authenticating to VoteShield, please check your API Key and Parameters.")
     return response['access_token']
 
-print(bearer_access_token())
+logging.info(bearer_access_token())
 
 # For now, population and tag routes are excluded.
 @schema.parametrize(method="GET",endpoint="^/(?!download_population)")
