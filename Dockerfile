@@ -2,7 +2,7 @@
 FROM public.ecr.aws/bitnami/python:3.9-prod
 
 # build dependencies
-# 
+#
 ENV BUILD_PACKAGES="g++ libpq-dev curl git"
 
 # Install build deps and heavy dependencies
@@ -39,7 +39,7 @@ ENV PATH="/opt/poetry/bin:/opt/pysetup/.venv/bin:$PATH"
 
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=$POETRY_HOME python3 -
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
@@ -49,7 +49,7 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-dev
 
 
-# Everything before this came from the Inspector 
+# Everything before this came from the Inspector
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY src/* /src/
