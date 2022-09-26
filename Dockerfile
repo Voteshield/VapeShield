@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM public.ecr.aws/bitnami/python:3.9-prod
+FROM public.ecr.aws/bitnami/python:3.10.2-prod
 
 # build dependencies
 #
