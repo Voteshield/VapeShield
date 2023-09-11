@@ -9,7 +9,7 @@ jobs:
     name: Test the backend schema response
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run the workflow using the local code
         uses: ./
         id: vape-naysh
